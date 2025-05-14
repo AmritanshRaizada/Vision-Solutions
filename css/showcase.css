@@ -1,0 +1,179 @@
+
+.showcase-container {
+  height: auto;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top:60px;
+  padding-bottom: 60px;
+  overflow: hidden;
+}
+#main-heading{
+  color:white;
+  text-align:center;
+  
+}
+
+
+.carousel-item {
+  position: relative;
+  width: 100vw;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  /* margin-bottom: 50px; */
+  background-color: #000;
+  border-radius: 10px;
+  aspect-ratio: 16 / 5;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.carousel-caption {
+  position: absolute;
+  right: 15%;
+  bottom: 1.25rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  color: #fff;
+  text-align: center;
+
+}
+
+.carousel-caption h5 {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-weight: bold;
+  color: #fff;
+  margin: 0.5rem 0;
+}
+
+.carousel-caption p {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  color: #ddd;
+  margin: 0.5rem 0;
+}
+
+.carousel-caption .btn {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  width: auto;
+}
+
+.carousel-caption .btn:hover {
+  background-color: #e2e2e2;
+  transform: translateY(-2px);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20%;
+  padding: 10px;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries */
+
+/* For phones with width less than 480px */
+/* @media (max-width: 480px) {
+  .showcase-container {
+    height: auto;
+    padding-bottom: 30px;
+  }
+
+  .carousel-item img {
+    aspect-ratio: auto;
+    height: auto;
+    max-height: 300px;
+  }
+
+  .carousel-caption {
+    bottom: 3vh;
+    padding: 10px;
+    position: relative;
+  }
+
+  .carousel-caption .btn {
+    width: 90%; /* Ensures the button fits within the screen width */
+    /* font-size: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    margin: 0 auto; /* Centers the button */
+    /* display: block; Ensures it's displayed as a block element */
+  
+/* } */ 
+/* Ensure the button is visible and adjusts properly on smaller screens */
+@media (max-width: 480px) {
+  .carousel-caption {
+    bottom: 3vh;
+    padding: 10px;
+    position: relative; /* Ensure the caption is positioned relative to the parent */
+    text-align: center; /* Center the text */
+  }
+
+  .carousel-caption .btn {
+    display: inline-block; /* Ensure the button is treated as an inline element */
+    margin: 0 auto; /* Center the button horizontally */
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    width: auto; /* Ensure the button fits the screen */
+  }
+
+  .carousel-item img {
+    max-height: 300px;
+    height: auto;
+  }
+}
+
+
+/* For larger phones, tablets, and landscape orientation up to 768px */
+@media (max-width: 768px) {
+  .showcase-container {
+    height:auto;
+    padding-bottom:30px;
+  }
+  .carousel-caption {
+    right: 10%;
+    bottom: 2rem;
+  }
+
+  .carousel-caption h5 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .carousel-caption p {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+  }
+
+  .carousel-caption .btn {
+    padding: 1rem 2rem;
+    width: auto;
+  } 
+}

@@ -1,0 +1,373 @@
+<div id="page4">
+  <div class="section">
+    <div class="sec-left">
+      <h2>Website Designs</h2>
+      <p>
+        We craft stunning, responsive, and user-friendly website designs
+        tailored to your brand. Our designs combine creativity and functionality
+        to ensure a seamless user experience and powerful online presence.
+      </p>
+    </div>
+    <div class="sec-right">
+      <div class="media-container">
+        <img
+          src="https://assets-global.website-files.com/64a5e6675a4159253d0ee3e0/65a93ac90b586168e5917ac8_Rhea%20-%20cover_horizontal_low.webp"
+          alt="Website design example"
+        />
+        <video autoplay muted loop playsinline preload="auto">
+          <source src="accern-rhea-cover-big.mp4" type="video/mp4" />
+        </video>
+        <div class="play-button">
+          <svg viewBox="0 0 24 24">
+            <path class="play-icon" d="M8 5v14l11-7z" />
+            <path
+              class="pause-icon"
+              d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"
+              style="display: none"
+            />
+          </svg>
+        </div>
+        <div class="media-hover-effect"></div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="sec-left">
+      <h2>Digital Marketing</h2>
+      <p>
+        Digital marketing that drives results—boost your brand's visibility,
+        engage your audience across platforms, and increase conversions through
+        SEO, social media strategies, content creation, and targeted
+        advertising.
+      </p>
+    </div>
+    <div class="sec-right">
+      <div class="media-container">
+        <img
+          src="https://assets-global.website-files.com/64a5e6675a4159253d0ee3e0/65cb66041ce86ac3784aaba1_Afrotech%20-%20cover_horizontal.webp"
+          alt="Digital marketing campaign"
+        />
+        <video muted loop playsinline preload="auto">
+          <source
+            src="https://lazarev.kiev.ua/cases/la24/afrotech-cover-big.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div class="play-button">
+          <svg viewBox="0 0 24 24">
+            <path class="play-icon" d="M8 5v14l11-7z" />
+            <path
+              class="pause-icon"
+              d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"
+              style="display: none"
+            />
+          </svg>
+        </div>
+        <div class="media-hover-effect"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+  #page4 {
+    padding-inline: 50px 5%;
+    padding-block: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  @media (max-width: 768px) {
+    #page4 {
+      padding: 10px 5%;
+      padding-bottom: 1vh;
+    }
+  }
+
+  .section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 100px;
+    gap: 60px;
+    position: relative;
+  }
+
+  .section:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .sec-left {
+    flex: 1;
+    padding-right: 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section:nth-child(even) .sec-left {
+    padding-right: 0;
+    padding-left: 60px;
+  }
+
+  .sec-right {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  #page4 h2 {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    color: #222;
+    font-weight: 700;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #4f5bff, #252525, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+  }
+
+  #page4 h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(45deg, #6e45e2, #88d3ce);
+    border-radius: 2px;
+  }
+
+  #page4 p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: black;
+    margin-bottom: 40px;
+    position: relative;
+    padding-left: 20px;
+  }
+
+  #page4 p::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(135deg, #4f5bff, #252525, #000000);
+    border-radius: 2px;
+  }
+
+  .media-container {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    will-change: transform;
+    cursor: pointer;
+  }
+
+  .media-container:hover {
+    transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) scale(1.03);
+    box-shadow: 0 35px 60px -10px rgba(0, 0, 0, 0.2);
+  }
+
+  .media-container img,
+  .media-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    transform-origin: center;
+  }
+
+  .media-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: scale(1.05);
+  }
+
+  .media-container:hover video {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 3;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .play-button svg {
+    width: 30px;
+    height: 30px;
+    fill: #6e45e2;
+  }
+
+  .media-container:hover .play-button {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .play-button:hover {
+    background: white;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .media-hover-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.4) 0%,
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .media-container:hover .media-hover-effect {
+    opacity: 1;
+  }
+
+  /* Floating animation for videos only */
+  @keyframes float {
+    0%, 100% {
+      transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) translateY(0);
+    }
+    50% {
+      transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) translateY(-20px);
+    }
+  }
+
+  .media-container {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .section:nth-child(even) .media-container {
+    animation-delay: 1s;
+  }
+
+  /* Responsive styles */
+  @media (max-width: 1200px) {
+    #page4 h2 {
+      font-size: 2.5rem;
+    }
+
+    #page4 p {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .section,
+    .section:nth-child(even) {
+      flex-direction: column;
+    }
+
+    .sec-left,
+    .section:nth-child(even) .sec-left {
+      padding: 0;
+      margin-bottom: 50px;
+    }
+
+    #page4 h2 {
+      font-size: 2.2rem;
+    }
+
+    .media-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section {
+      margin-bottom: 100px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #page4 h2 {
+      font-size: 2rem;
+    }
+
+    /* Reduce floating animation on mobile */
+    .media-container {
+      animation: float 6s ease-in-out infinite;
+      transform: perspective(1000px) rotateY(0) rotateX(0);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Video controls functionality
+    document.querySelectorAll(".media-container").forEach((container) => {
+      const video = container.querySelector("video");
+      const playButton = container.querySelector(".play-button");
+      const playIcon = container.querySelector(".play-icon");
+      const pauseIcon = container.querySelector(".pause-icon");
+
+      // Preload videos
+      if (video) {
+        video.load();
+      }
+
+      container.addEventListener("mouseenter", () => {
+        if (video) {
+          video.play().catch((e) => console.log("Autoplay prevented:", e));
+          playIcon.style.display = "none";
+          pauseIcon.style.display = "block";
+        }
+      });
+
+      container.addEventListener("mouseleave", () => {
+        if (video) {
+          video.pause();
+          playIcon.style.display = "block";
+          pauseIcon.style.display = "none";
+        }
+      });
+
+      if (playButton) {
+        playButton.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (video.paused) {
+            video.play();
+            playIcon.style.display = "none";
+            pauseIcon.style.display = "block";
+          } else {
+            video.pause();
+            playIcon.style.display = "block";
+            pauseIcon.style.display = "none";
+          }
+        });
+      }
+    });
+  });
+</script>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision and Solutions (VAS)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary: #2a3f9d;
+            --secondary: #1e2c7a;
+            --accent: #4cc9f0;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --success: #4bb543;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .about-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            text-align: center;
+        }
+        
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(42, 63, 157, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards 0.5s;
+        }
+        
+        .heading {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.8s ease-out forwards;
+        }
+        
+        .heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .paragraph {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.8s ease-out forwards 0.3s;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(42, 63, 157, 0.1), rgba(76, 201, 240, 0.1));
+            border-left: 4px solid var(--primary);
+            padding: 2rem;
+            margin: 2.5rem auto;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideRight 0.8s ease-out forwards 0.6s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            text-align: left;
+        }
+        
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(42, 63, 157, 0.05), rgba(76, 201, 240, 0.05));
+            z-index: -1;
+        }
+        
+        .highlight-box p {
+            font-size: 1.1rem;
+            margin: 0;
+            position: relative;
+        }
+        
+        strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        em {
+            font-style: italic;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+        
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            margin: 3rem auto;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards 0.9s;
+            max-width: 800px;
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(42, 63, 157, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        .floating-element:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+        
+        .floating-element:nth-child(3) {
+            width: 70px;
+            height: 70px;
+            top: 80%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+        
+        .floating-element:nth-child(4) {
+            width: 120px;
+            height: 120px;
+            top: 30%;
+            left: 60%;
+            animation-delay: 6s;
+        }
+        
+        /* CTA Button Styles */
+        .cta-container {
+            margin-top: 3rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards 1.2s;
+        }
+        
+        .cta-button {
+            position: relative;
+            padding: 16px 40px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            z-index: 1;
+            box-shadow: 0 10px 20px rgba(42, 63, 157, 0.2);
+        }
+        
+        .cta-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), #000000);
+            opacity: 0;
+            z-index: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+        
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.4s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(42, 63, 157, 0.3);
+        }
+        
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+        
+        .cta-button:active {
+            transform: translateY(-2px);
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .heading {
+                font-size: 2.5rem;
+            }
+            
+            .paragraph, .highlight-box p {
+                font-size: 1rem;
+            }
+            
+            .highlight-box {
+                padding: 1.5rem;
+            }
+            
+            .cta-button {
+                padding: 14px 32px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="about-section">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        
+        <h2 class="heading">Who We Are?</h2>
+        
+        <p class="paragraph">Welcome to <strong>Vision and Solutions (VAS)</strong>, your gateway to broad digital solutions that provide success in the online kingdom. At VAS, we offer a variety of services to increase the digital appearance of your brand and maximize its impact.</p>
+        
+        <div class="highlight-box">
+            <p>At <strong>Vision and Solutions (VAS)</strong>, we do not just help brands mark their presence online; we help them stand out and scale. From ambitious startups to established companies, we design <em>impressive digital strategies</em> that increase visibility, drive qualified traffic, and accelerate turnover growth.</p>
+        </div>
+        
+        <p class="paragraph">But our mission runs deeper. VAS is committed to creating <strong>scalable digital products</strong> that evolve with your audience and the market, ensuring that your brand remains relevant, flexible and ready for what's next. We are not here for short-term victories; we are here to create lasting digital heritage.</p>
+        
+        <hr>
+        
+        <div class="cta-container">
+            <a href="https://contact.visionandsolutions.com/" class="cta-button">
+                <span>Become a client</span>
+            </a>
+        </div>
+    </section>
+</body>
+</html>
